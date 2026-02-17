@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OptiCode | AI Reviewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="bg-slate-950 text-slate-200 h-screen flex flex-col">
+
+    <nav class="border-b border-slate-800 p-4 flex justify-between items-center bg-slate-900/50 backdrop-blur-md">
+        <h1 class="text-xl font-black tracking-tighter text-blue-400">OPTICODE</h1>
+        
+        <div class="flex items-center gap-4">
+            <select id="modelSelect" class="bg-slate-900 border border-slate-700 text-sm rounded-lg p-2 outline-none focus:ring-2 focus:ring-blue-500 text-slate-300">
+                <option value="gemini">Gemini 2.0 (Deep Analysis)</option>
+                <option value="groq">Groq Llama 3 (Ultra Fast)</option>
+            </select>
+            <button onclick="sendCode()" class="bg-blue-600 hover:bg-blue-500 px-6 py-2 rounded-full font-bold transition-all shadow-lg shadow-blue-900/20 active:scale-95">
+                Analyze & Refine
+            </button>
+        </div>
+    </nav>
+
+    <main class="flex flex-1 overflow-hidden p-4 gap-4">
+        <div class="flex-1 flex flex-col gap-2">
+            <label class="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Source Code</label>
+            <textarea id="codeInput" class="flex-1 bg-slate-900 border border-slate-800 rounded-xl p-4 font-mono text-sm focus:ring-2 focus:ring-blue-500 outline-none resize-none transition-all" placeholder="// Paste your code here..."></textarea>
+        </div>
+
+        <div class="flex-1 flex flex-col gap-2">
+            <label class="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">AI Optimization</label>
+            <div id="codeOutput" class="flex-1 bg-slate-900/50 border border-slate-800 rounded-xl p-4 font-mono text-sm overflow-auto whitespace-pre-wrap text-emerald-400">
+                <span class="text-slate-600">// Results will appear here after analysis...</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

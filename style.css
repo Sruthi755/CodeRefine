@@ -1,0 +1,42 @@
+/* Custom scrollbar for a "dark mode" feel */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a; /* matches slate-900 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155; /* matches slate-700 */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569; /* matches slate-600 */
+}
+
+/* Subtle glowing animation for the output box */
+@keyframes glow {
+    0% { border-color: #1e293b; }
+    50% { border-color: #3b82f6; }
+    100% { border-color: #1e293b; }
+}
+
+.analyzing {
+    animation: glow 2s infinite ease-in-out;
+}
+
+/* Better font rendering for code */
+#codeInput, #codeOutput {
+    font-family: 'Fira Code', 'JetBrains Mono', 'Source Code Pro', monospace;
+    tab-size: 4;
+    line-height: 1.6;
+}
+
+/* Selection color */
+::selection {
+    background: #3b82f6;
+    color: white;
+}
