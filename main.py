@@ -40,7 +40,8 @@ async def lifespan(app: FastAPI):
     # Startup: Initialize clients and models
     global security_scanner, gemini_client, groq_client
     # Initialize security scanner (if transformers available)
-    if pipeline is not None:
+    # Skip for now since it heavily blocks startup; can be loaded on-demand per request
+    if False and pipeline is not None:  # Disabled to avoid blocking startup
         try:
             logger.info("Loading Hugging Face security model... this may take a moment")
             security_scanner = pipeline(
